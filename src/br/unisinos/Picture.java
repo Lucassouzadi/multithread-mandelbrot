@@ -7,29 +7,16 @@ package br.unisinos;
  *
  ******************************************************************************/
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-
 import java.awt.image.BufferedImage;
-
 import java.io.File;
 import java.io.IOException;
-
 import java.net.URL;
-
-import javax.imageio.ImageIO;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 
 
 /**
@@ -666,6 +653,14 @@ public final class Picture implements ActionListener {
         Picture picture = new Picture(args[0]);
         System.out.printf("%d-by-%d\n", picture.width(), picture.height());
         picture.show();
+    }
+
+    public Point getScreenPosition() {
+        return frame.getContentPane().getLocationOnScreen();
+    }
+
+    public Point getMousePosition(){
+        return MouseInfo.getPointerInfo().getLocation();
     }
 
 }
